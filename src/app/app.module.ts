@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { ChoixStagiaireComponent } from './choix-stagiaire/choix-stagiaire.component';
 import { BandeauComponent } from './bandeau/bandeau.component';
 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,7 +14,8 @@ import { BandeauComponent } from './bandeau/bandeau.component';
     BandeauComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
