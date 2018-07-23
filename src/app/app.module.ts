@@ -2,10 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { ChoixStagiaireComponent } from './choix-stagiaire/choix-stagiaire.component';
+import { BandeauComponent } from './bandeau/bandeau.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChoixStagiaireComponent,
+    BandeauComponent,
   ],
   imports: [
     BrowserModule
