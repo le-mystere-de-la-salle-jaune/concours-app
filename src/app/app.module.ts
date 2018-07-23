@@ -7,6 +7,7 @@ import { BandeauComponent } from './bandeau/bandeau.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { StagiaireComponent } from './stagiaire/stagiaire.component';
+import { ListeStagiaireComponent } from './liste-stagiaire/liste-stagiaire.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { StagiaireComponent } from './stagiaire/stagiaire.component';
     ChoixStagiaireComponent,
     BandeauComponent,
     StagiaireComponent,
+    ListeStagiaireComponent,
   ],
   imports: [
     BrowserModule,

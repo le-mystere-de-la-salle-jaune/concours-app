@@ -15,4 +15,8 @@ export class StagiaireComponent implements OnInit {
   ngOnInit() {
   }
 
+  choisir() {
+    console.log( this.stagiaire.nom + " " + this.stagiaire.prenom );
+  }
+
 }

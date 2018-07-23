@@ -1,0 +1,15 @@
+<h2 class="text-center">Veuillez choisir un stagiaire</h2>
+<div class="container-fluid">
+  <div class="row justify-content-between">
+
+      <div *ngFor="let s of stagiaires" class="mb-3">
+          <app-stagiaire [stagiaire]="s"></app-stagiaire>
+      </div>
+
+  </div>
+
+  
+
+</div>
+
+
