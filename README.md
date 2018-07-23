@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
+[![Build Status](https://travis-ci.org/le-mystere-de-la-salle-jaune/concours-app.svg?branch=master)](https://travis-ci.org/le-mystere-de-la-salle-jaune/concours-app)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
