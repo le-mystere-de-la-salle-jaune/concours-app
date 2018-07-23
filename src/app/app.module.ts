@@ -6,12 +6,14 @@ import { ChoixStagiaireComponent } from './choix-stagiaire/choix-stagiaire.compo
 import { BandeauComponent } from './bandeau/bandeau.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { StagiaireComponent } from './stagiaire/stagiaire.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChoixStagiaireComponent,
     BandeauComponent,
+    StagiaireComponent,
   ],
   imports: [
     BrowserModule,
