@@ -13,7 +13,7 @@ export class ListeStagiaireComponent implements OnInit {
   stagiaires:Stagiaire[]
 
   constructor(private stagiaireService:StagiaireService) {
-    this.stagiaires = this.stagiaireService.listerStagiaires()
+    this.stagiaireService.listerStagiaires().then((liste:Stagiaire[])=> { this.stagiaires = liste })
    }
 
   ngOnInit() {

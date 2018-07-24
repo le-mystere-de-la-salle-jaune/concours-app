@@ -15,10 +15,13 @@ export class StagiaireService {
     return this._http.get(environment.stagiaireApiUrl)
         .toPromise()
         .then((body:any)=>{
-          let array = Stagiaire[]
+            let array:Stagiaire[] = []
+            body.forEach(element => {
+              array.push(element)
+          });
           return array
         },(error:any)=>{
-
+          return null
         })
 
   }
