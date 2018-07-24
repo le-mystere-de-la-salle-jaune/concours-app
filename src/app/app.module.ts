@@ -10,11 +10,12 @@ import { BandeauComponent } from './bandeau/bandeau.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { StagiaireComponent } from './stagiaire/stagiaire.component';
 import { ListeStagiaireComponent } from './liste-stagiaire/liste-stagiaire.component';
+import { ConcoursStagiaireComponent } from './concours-stagiaire/concours-stagiaire.component';
 
 
 const appRoutes: Routes = [
 
-  //{ path: '/:id/concours' , component: ConcourStagiaireComponent},
+  { path: ':id/concours' , component: ConcoursStagiaireComponent},
   { path: 'choix-stagiaires', component: ChoixStagiaireComponent },
   { path: '', redirectTo: '/choix-stagiaires' ,pathMatch : 'full'}
   //{ path: '**', component: PageNonTrouveeComponent }
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     BandeauComponent,
     StagiaireComponent,
     ListeStagiaireComponent,
+    ConcoursStagiaireComponent
   ],
   imports: [
     BrowserModule,

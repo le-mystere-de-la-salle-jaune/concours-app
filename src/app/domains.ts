@@ -8,3 +8,10 @@ export class Stagiaire{
         this.id = id
     }
 }
+
+export class Concours{
+    constructor(public titre:string, public nbQuizz:number ){
+        this.titre = titre,
+        this.nbQuizz = nbQuizz
+    }   
+}

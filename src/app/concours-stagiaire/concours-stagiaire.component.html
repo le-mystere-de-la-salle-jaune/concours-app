@@ -1,0 +1,18 @@
+<app-bandeau></app-bandeau>
+<h2>Mes concours</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Libellé</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of concours">
+      <td>{{c.titre}} ({{c.nbQuizz}} questionnaires)</td>
+      <td>
+        <a href="" class="btn btn-primary">Participer</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
