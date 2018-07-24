@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Stagiaire} from '../domains'
+import {Stagiaire,Concours} from '../domains'
 import {environment} from '../../environments/environment'
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpParams} from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +25,22 @@ export class StagiaireService {
         })
 
   }
+
+  listerConcours(id:string):Promise<Concours[]>{
+
+    const options = {params : new HttpParams().set('idStagiaire',id)}
+
+    return this._http.get(environment.stagiaireApiUrl,options)
+        .toPromise()
+        .then((body:any)=>{
+            let array:Concours[] = []
+            body.forEach(element => {
+              array.push(element)
+          });
+          return array
+        },(error:any)=>{
+          return null
+        })
+  }
+
 }

@@ -1,17 +1,10 @@
 export class Stagiaire{
 
     constructor( public id:number, public prenom:string, public  nom:string, public email:string ,public  photo_url:string){
-        this.prenom = prenom
-        this.nom = nom
-        this.photo_url = photo_url
-        this.email = email
-        this.id = id
     }
 }
 
 export class Concours{
-    constructor(public titre:string, public nbQuizz:number ){
-        this.titre = titre,
-        this.nbQuizz = nbQuizz
+    constructor(public id:number, public titre:string, public nb_participants:number, public nb_quizzes:number ){
     }   
 }
