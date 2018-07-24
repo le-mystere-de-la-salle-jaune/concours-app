@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { ChoixStagiaireComponent } from './choix-stagiaire/choix-stagiaire.component';
@@ -19,7 +20,8 @@ import { ListeStagiaireComponent } from './liste-stagiaire/liste-stagiaire.compo
   ],
   imports: [
     BrowserModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
