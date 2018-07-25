@@ -1,18 +1,23 @@
 <app-navigation></app-navigation>
+
 <app-bandeau></app-bandeau>
-<h2>Mes concours</h2>
+<h2>Mes résultats</h2>
 <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Libellé</th>
-      <th scope="col">Action</th>
+      <th scope="col">Mon rang</th>
+      <th scope="col">Classement</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let c of concours">
       <td>{{c.titre}} ({{c.nb_quizzes}} questionnaires)</td>
       <td>
-        <a href="" class="btn btn-primary">Participer</a>
+        <!--  Rang à attraper -->
+      </td>
+      <td>
+        <a href="{{id}}/resultats/{{c.id}}">Voir le classement</a>
       </td>
     </tr>
   </tbody>

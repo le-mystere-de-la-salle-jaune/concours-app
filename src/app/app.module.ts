@@ -11,14 +11,20 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { StagiaireComponent } from './stagiaire/stagiaire.component';
 import { ListeStagiaireComponent } from './liste-stagiaire/liste-stagiaire.component';
 import { ConcoursStagiaireComponent } from './concours-stagiaire/concours-stagiaire.component';
+import { ResultatsStagiaireComponent } from './resultats-stagiaire/resultats-stagiaire.component';
+import { ResultatsQuestionnairesComponent } from './resultats-questionnaires/resultats-questionnaires.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { PageNonTrouveeComponent } from './page-non-trouvee/page-non-trouvee.component';
 
 
 const appRoutes: Routes = [
 
   { path: ':id/concours' , component: ConcoursStagiaireComponent},
   { path: 'choix-stagiaires', component: ChoixStagiaireComponent },
-  { path: '', redirectTo: '/choix-stagiaires' ,pathMatch : 'full'}
-  //{ path: '**', component: PageNonTrouveeComponent }
+  { path: ':id/resultats', component: ResultatsStagiaireComponent },
+  { path: 'id/resultats/id-quizz', component: ResultatsQuestionnairesComponent },
+  { path: '', redirectTo: '/choix-stagiaires' ,pathMatch : 'full'},
+  { path: '**', component: PageNonTrouveeComponent }
 
 ]
 
@@ -30,7 +36,11 @@ const appRoutes: Routes = [
     BandeauComponent,
     StagiaireComponent,
     ListeStagiaireComponent,
-    ConcoursStagiaireComponent
+    ConcoursStagiaireComponent,
+    ResultatsStagiaireComponent,
+    ResultatsQuestionnairesComponent,
+    NavigationComponent,
+    PageNonTrouveeComponent
   ],
   imports: [
     BrowserModule,

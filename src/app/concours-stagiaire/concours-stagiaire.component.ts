@@ -15,7 +15,6 @@ export class ConcoursStagiaireComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private stagiaireService:StagiaireService) { 
     this.id = route.snapshot.paramMap.get("id")
-    this.concours 
     this.stagiaireService.listerConcours(this.id).then((liste:Concours[])=> { this.concours = liste })
   }
 
