@@ -22,7 +22,7 @@ export class NavigationComponent implements OnInit {
 
     this.stagiaireService.listerStagiaires().then((liste:Stagiaire[])=> { 
                           stagiaires = liste; 
-                          this.email = stagiaires[this.id].email
+                          this.email = stagiaires[+this.id-1].email
                         })
 
     

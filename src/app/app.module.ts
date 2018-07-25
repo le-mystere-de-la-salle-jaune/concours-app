@@ -22,7 +22,7 @@ const appRoutes: Routes = [
   { path: ':id/concours' , component: ConcoursStagiaireComponent},
   { path: 'choix-stagiaires', component: ChoixStagiaireComponent },
   { path: ':id/resultats', component: ResultatsStagiaireComponent },
-  { path: 'id/resultats/id-quizz', component: ResultatsQuestionnairesComponent },
+  { path: ':id/resultats/:idConcours', component: ResultatsQuestionnairesComponent },
   { path: '', redirectTo: '/choix-stagiaires' ,pathMatch : 'full'},
   { path: '**', component: PageNonTrouveeComponent }
 

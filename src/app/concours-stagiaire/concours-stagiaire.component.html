@@ -12,7 +12,7 @@
     <tr *ngFor="let c of concours">
       <td>{{c.titre}} ({{c.nb_quizzes}} questionnaires)</td>
       <td>
-        <a href="" class="btn btn-primary">Participer</a>
+        <a class="btn btn-primary" (click)="commencerConcours(c.id)" >Participer</a>
       </td>
     </tr>
   </tbody>

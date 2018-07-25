@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Concours} from '../domains'
 import { StagiaireService } from '../services/stagiaire.service';
+import { ConcoursService } from '../services/concours.service';
 
 @Component({
   selector: 'app-concours-stagiaire',
@@ -11,11 +12,17 @@ import { StagiaireService } from '../services/stagiaire.service';
 export class ConcoursStagiaireComponent implements OnInit {
 
   id:string
+  idConcours:string
   concours:Concours[] = []
 
-  constructor(private route: ActivatedRoute, private stagiaireService:StagiaireService) { 
+  constructor(private route: ActivatedRoute, private concoursService:ConcoursService) { 
     this.id = route.snapshot.paramMap.get("id")
-    this.stagiaireService.listerConcours(this.id).then((liste:Concours[])=> { this.concours = liste })
+    this.idConcours = route.snapshot.paramMap.get("idConcours")
+    this.concoursService.listerConcours(this.id).then((liste:Concours[])=> { this.concours = liste }).catch((error:any)=> console.log(error) )
+  }
+
+  commencerConcours(id_concours:number){
+    this.concoursService.commencerConcours(+this.id,id_concours)
   }
 
   ngOnInit() {

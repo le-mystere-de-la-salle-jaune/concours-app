@@ -9,7 +9,8 @@ export const environment = {
 
   backEndUrl,
   stagiaireApiUrl: `${backEndUrl}/api/stagiaires`,
-  concoursApiUrl: `${backEndUrl}/api/concours`
+  concoursApiUrl: `${backEndUrl}/api/concours`,
+  commencerConcoursUrl: `${backEndUrl}/api/passage_concours/start`
 
 };
 
