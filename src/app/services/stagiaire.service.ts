@@ -30,7 +30,7 @@ export class StagiaireService {
 
     const options = {params : new HttpParams().set('idStagiaire',id)}
 
-    return this._http.get(environment.stagiaireApiUrl,options)
+    return this._http.get(environment.concoursApiUrl,options)
         .toPromise()
         .then((body:any)=>{
             let array:Concours[] = []
@@ -39,6 +39,7 @@ export class StagiaireService {
           });
           return array
         },(error:any)=>{
+          console.log(error)
           return null
         })
   }

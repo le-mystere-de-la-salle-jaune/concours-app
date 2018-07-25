@@ -8,7 +8,8 @@ export const environment = {
   production: false,
 
   backEndUrl,
-  stagiaireApiUrl: `${backEndUrl}/api/stagiaires`
+  stagiaireApiUrl: `${backEndUrl}/api/stagiaires`,
+  concoursApiUrl: `${backEndUrl}/api/concours`
 
 };
 
