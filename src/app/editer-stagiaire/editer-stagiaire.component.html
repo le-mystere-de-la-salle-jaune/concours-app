@@ -2,7 +2,7 @@
 <app-bandeau></app-bandeau>
 
 <h2>Mon profil</h2>
-<form (ngSubmit)="submit(monForm, champNom)" #monForm="ngForm">
+<form (ngSubmit)="submit(monForm)" #monForm="ngForm">
 
   <label>Nom : </label><input type="text" class="form-control" [(ngModel)]="monStagiaire.nom" #champNom="ngModel" name="champNom" required minlength="3" maxlength="75">
   <div *ngIf="champNom.invalid && champNom.dirty">
