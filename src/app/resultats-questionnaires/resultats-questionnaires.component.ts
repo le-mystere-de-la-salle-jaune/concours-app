@@ -11,16 +11,16 @@ import { ConcoursService } from '../services/concours.service';
 })
 export class ResultatsQuestionnairesComponent implements OnInit {
 
-  id:string
-  idConcours:string
+  id:number
+  idConcours:number
   stagiaires:Stagiaire[] = []
   concours:Concours[] = []
 
   constructor(private route: ActivatedRoute, private stagiaireService:StagiaireService, private concoursService:ConcoursService,router:Router) { 
-    this.id = route.snapshot.paramMap.get("id")
-    this.idConcours = route.snapshot.paramMap.get("idConcours")
+    this.id = +route.snapshot.paramMap.get("id")
+    this.idConcours = +route.snapshot.paramMap.get("idConcours")
     this.stagiaireService.listerStagiaires().then((liste:Stagiaire[])=> { this.stagiaires = liste }).catch((error:any)=> console.log(error) )
-    this.concoursService.listerConcours(this.id).then((liste:Concours[])=> { this.concours = liste }).catch((error:any)=> console.log(error) )
+    this.concoursService.listerConcours(route.snapshot.paramMap.get("id")).then((liste:Concours[])=> { this.concours = liste }).catch((error:any)=> console.log(error) )
   }
 
   ngOnInit() {

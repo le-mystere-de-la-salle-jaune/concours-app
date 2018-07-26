@@ -27,7 +27,8 @@ export class EditerStagiaireComponent implements OnInit {
 
     if(monForm.valid){
       console.log(this.monStagiaire)
-      this.service.modifierStagiaire(this.monStagiaire).then(()=>this.router.navigateByUrl('choix-stagiaires'));
+      this.service.modifierStagiaire(this.monStagiaire)
+        .then(()=>this.router.navigateByUrl('choix-stagiaires'));
     }
   }
 
