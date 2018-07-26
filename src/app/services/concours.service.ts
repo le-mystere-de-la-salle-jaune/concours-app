@@ -43,14 +43,14 @@ export class ConcoursService {
 
   getConcoursById(id:number):Promise<Concours>{
 
-    return this._http.get(environment.stagiaireApiUrl+'/'+id)
+    return this._http.get(environment.concoursApiUrl+'/'+id)
         .toPromise()
         .then((body:any)=>{
-            let array:Concours[] = []
+            let concours:Concours
             body.forEach(element => {
-              array.push(element)
+              concours = element
           });
-          return array
+          return concours
         },(error:any)=>{
           return null
         })

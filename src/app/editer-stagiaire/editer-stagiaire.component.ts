@@ -19,6 +19,7 @@ export class EditerStagiaireComponent implements OnInit {
   constructor(private route: ActivatedRoute,private service:StagiaireService, private router:Router) {
     this.id = this.route.snapshot.paramMap.get("id")
     this.monStagiaire = new Stagiaire(+this.id,"","","","")
+    //service.getStagiaireById(+this.id).then( (stagiaire:Stagiaire) => this.monStagiaire=stagiaire )
    }
 
   submit(monForm:any){
@@ -28,7 +29,7 @@ export class EditerStagiaireComponent implements OnInit {
     if(monForm.valid){
       console.log(this.monStagiaire)
       this.service.modifierStagiaire(this.monStagiaire)
-        .then(()=>this.router.navigateByUrl('choix-stagiaires'));
+      .then(()=>this.router.navigateByUrl('choix-stagiaires'));
     }
   }
 

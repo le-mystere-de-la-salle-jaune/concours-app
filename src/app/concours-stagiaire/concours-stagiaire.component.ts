@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {Concours} from '../domains'
 import { ConcoursService } from '../services/concours.service';
 
@@ -14,7 +14,7 @@ export class ConcoursStagiaireComponent implements OnInit {
   idConcours:string
   concours:Concours[] = []
 
-  constructor(private route: ActivatedRoute, private concoursService:ConcoursService) { 
+  constructor(private route: ActivatedRoute, private concoursService:ConcoursService, private router:Router) { 
     this.id = this.route.snapshot.paramMap.get("id")
     this.idConcours = route.snapshot.paramMap.get("idConcours")
     this.concoursService.listerConcours(this.id).then((liste:Concours[])=> { this.concours = liste }).catch((error:any)=> console.log(error) )
@@ -22,6 +22,7 @@ export class ConcoursStagiaireComponent implements OnInit {
 
   commencerConcours(id_concours:number){
     this.concoursService.commencerConcours(+this.id,id_concours)
+    this.router.navigateByUrl(this.id+'/resultats/'+id_concours+'/concours')
   }
 
   ngOnInit() {

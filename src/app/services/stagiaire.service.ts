@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Stagiaire} from '../domains'
 import {environment} from '../../environments/environment'
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpParams} from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -31,13 +31,13 @@ export class StagiaireService {
     return this._http.get(environment.stagiaireApiUrl+'/'+id)
         .toPromise()
         .then((body:any)=>{
-            let array:Stagiaire[] = []
+            let stagiaire:Stagiaire
             body.forEach(element => {
-              array.push(element)
+              stagiaire = element
           });
-          return array
+          return stagiaire
         },(error:any)=>{
-          return null
+          console.log("ERROR !!!");return null
         })
   }
 

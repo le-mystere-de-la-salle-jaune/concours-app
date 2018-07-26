@@ -17,6 +17,7 @@ import { ResultatsQuestionnairesComponent } from './resultats-questionnaires/res
 import { NavigationComponent } from './navigation/navigation.component';
 import { PageNonTrouveeComponent } from './page-non-trouvee/page-non-trouvee.component';
 import { EditerStagiaireComponent } from './editer-stagiaire/editer-stagiaire.component';
+import { PassageConcoursComponent } from './passage-concours/passage-concours.component';
 
 
 
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
   { path: 'choix-stagiaires', component: ChoixStagiaireComponent },
   { path: ':id/resultats', component: ResultatsStagiaireComponent },
   { path: ':id/resultats/:idConcours', component: ResultatsQuestionnairesComponent },
+  { path: ':id/resultats/:idConcours/concours', component: PassageConcoursComponent },
   { path: ':id/profil', component: EditerStagiaireComponent },
   { path: '', redirectTo: '/choix-stagiaires' ,pathMatch : 'full'},
   { path: '**', component: PageNonTrouveeComponent }
@@ -45,7 +47,8 @@ const appRoutes: Routes = [
     ResultatsQuestionnairesComponent,
     NavigationComponent,
     PageNonTrouveeComponent,
-    EditerStagiaireComponent
+    EditerStagiaireComponent,
+    PassageConcoursComponent
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,7 @@
       Veuillez entrer un email correct (il doit y avoir un '@' entre autre)
   </div>
   <br>
-  <label>Photo Url : </label><input type="url" placeholder="https://example.com" pattern="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$" 
+  <label>Photo Url : </label><input type="url" placeholder="{{monStagiaire.photo_url}}" pattern="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$" 
     class="form-control" [(ngModel)]="monStagiaire.photo_url" #champPhotoUrl="ngModel" name="champPhotoUrl" required>
   <div *ngIf="champPhotoUrl.invalid && champPhotoUrl.dirty">
       Veuillez entrer un url correct
