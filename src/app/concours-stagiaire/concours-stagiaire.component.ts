@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Concours} from '../domains'
-import { StagiaireService } from '../services/stagiaire.service';
 import { ConcoursService } from '../services/concours.service';
 
 @Component({
@@ -16,7 +15,7 @@ export class ConcoursStagiaireComponent implements OnInit {
   concours:Concours[] = []
 
   constructor(private route: ActivatedRoute, private concoursService:ConcoursService) { 
-    this.id = route.snapshot.paramMap.get("id")
+    this.id = this.route.snapshot.paramMap.get("id")
     this.idConcours = route.snapshot.paramMap.get("idConcours")
     this.concoursService.listerConcours(this.id).then((liste:Concours[])=> { this.concours = liste }).catch((error:any)=> console.log(error) )
   }

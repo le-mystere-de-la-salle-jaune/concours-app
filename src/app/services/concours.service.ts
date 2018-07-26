@@ -41,6 +41,21 @@ export class ConcoursService {
         })
   }
 
+  getConcoursById(id:number):Promise<Concours>{
+
+    return this._http.get(environment.stagiaireApiUrl+'/'+id)
+        .toPromise()
+        .then((body:any)=>{
+            let array:Concours[] = []
+            body.forEach(element => {
+              array.push(element)
+          });
+          return array
+        },(error:any)=>{
+          return null
+        })
+  }
+
   commencerConcours(id_stagiaire:number,id_concours:number):Promise<number>{
     let body = {"concours_id":id_concours,"stagiaire_id":id_stagiaire}
     return this._http

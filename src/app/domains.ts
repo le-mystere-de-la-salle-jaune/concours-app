@@ -1,7 +1,9 @@
-export class Stagiaire{
+import { Component } from "../../node_modules/@angular/core";
 
+export class Stagiaire{
     constructor( public id:number, public prenom:string, public  nom:string, public email:string ,public  photo_url:string){
     }
+
 }
 
 export class Concours{

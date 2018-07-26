@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ChoixStagiaireComponent } from './choix-stagiaire/choix-stagiaire.component';
@@ -15,6 +16,8 @@ import { ResultatsStagiaireComponent } from './resultats-stagiaire/resultats-sta
 import { ResultatsQuestionnairesComponent } from './resultats-questionnaires/resultats-questionnaires.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PageNonTrouveeComponent } from './page-non-trouvee/page-non-trouvee.component';
+import { EditerStagiaireComponent } from './editer-stagiaire/editer-stagiaire.component';
+
 
 
 const appRoutes: Routes = [
@@ -23,6 +26,7 @@ const appRoutes: Routes = [
   { path: 'choix-stagiaires', component: ChoixStagiaireComponent },
   { path: ':id/resultats', component: ResultatsStagiaireComponent },
   { path: ':id/resultats/:idConcours', component: ResultatsQuestionnairesComponent },
+  { path: ':id/profil', component: EditerStagiaireComponent },
   { path: '', redirectTo: '/choix-stagiaires' ,pathMatch : 'full'},
   { path: '**', component: PageNonTrouveeComponent }
 
@@ -40,12 +44,14 @@ const appRoutes: Routes = [
     ResultatsStagiaireComponent,
     ResultatsQuestionnairesComponent,
     NavigationComponent,
-    PageNonTrouveeComponent
+    PageNonTrouveeComponent,
+    EditerStagiaireComponent
   ],
   imports: [
     BrowserModule,
     MDBBootstrapModule.forRoot(),
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
