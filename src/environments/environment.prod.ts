@@ -1,4 +1,4 @@
-const backEndUrl = "https://examen-web-admin.herokuapp.com"
+const backEndUrl = "https://concours-web-admin.herokuapp.com"
 
 export const environment = {
   production: true,

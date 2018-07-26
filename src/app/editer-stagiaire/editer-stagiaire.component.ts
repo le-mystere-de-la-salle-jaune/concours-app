@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Stagiaire } from '../domains';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { StagiaireService } from '../services/stagiaire.service';
 
 @Component({
   selector: 'app-editer-stagiaire',
@@ -15,17 +16,18 @@ export class EditerStagiaireComponent implements OnInit {
   // grâce au binding bi-directionnel  [(ngModel)]
   monStagiaire:Stagiaire
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,private service:StagiaireService, private router:Router) {
     this.id = this.route.snapshot.paramMap.get("id")
     this.monStagiaire = new Stagiaire(+this.id,"","","","")
    }
 
-  submit(monForm:any, champNom:any){
+  submit(monForm:any){
     
     console.log(monForm.status)
-    console.log(champNom)
+
     if(monForm.valid){
       console.log(this.monStagiaire)
+      this.service.modifierStagiaire(this.monStagiaire).then(()=>this.router.navigateByUrl('choix-stagiaires'));
     }
   }
 

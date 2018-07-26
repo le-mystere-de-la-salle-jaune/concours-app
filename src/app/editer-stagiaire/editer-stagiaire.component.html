@@ -1,7 +1,8 @@
+<app-navigation></app-navigation>
+<app-bandeau></app-bandeau>
+
 <h2>Mon profil</h2>
 <form (ngSubmit)="submit(monForm, champNom)" #monForm="ngForm">
-
-  {{monForm.errors}}
 
   <label>Nom : </label><input type="text" class="form-control" [(ngModel)]="monStagiaire.nom" #champNom="ngModel" name="champNom" required minlength="3" maxlength="75">
   <div *ngIf="champNom.invalid && champNom.dirty">
@@ -18,10 +19,10 @@
       Veuillez entrer un email correct (il doit y avoir un '@' entre autre)
   </div>
   <br>
-  <label>Photo Url : </label><input type="url" placeholder="https://example.com" pattern="https?://." 
-    class="form-control" [(ngModel)]="monStagiaire.photo_url" #champPhotoUrl="ngModel" name="champPhotoUrl" required minlength="3" maxlength="75">
+  <label>Photo Url : </label><input type="url" placeholder="https://example.com" pattern="^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$" 
+    class="form-control" [(ngModel)]="monStagiaire.photo_url" #champPhotoUrl="ngModel" name="champPhotoUrl" required>
   <div *ngIf="champPhotoUrl.invalid && champPhotoUrl.dirty">
-      Veuillez entrer un lien de photo url correct
+      Veuillez entrer un url correct
   </div>
   <br>
   <button type="submit" class="btn btn-primary">Mofifier</button>

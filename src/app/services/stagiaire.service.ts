@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Stagiaire} from '../domains'
 import {environment} from '../../environments/environment'
-import {HttpClient, HttpParams} from '@angular/common/http'
+import {HttpClient} from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +39,13 @@ export class StagiaireService {
         },(error:any)=>{
           return null
         })
+  }
+
+  modifierStagiaire(ngForm)
+  {
+    return this._http.put(`${environment.backEndUrl}/api/stagiaires`,ngForm)
+    .toPromise()
+    .then((el: any) => new Stagiaire(el.id,el.nom, el.prenom,el.email, el.photo_url));
   }
 
 
