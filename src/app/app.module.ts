@@ -18,6 +18,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { PageNonTrouveeComponent } from './page-non-trouvee/page-non-trouvee.component';
 import { EditerStagiaireComponent } from './editer-stagiaire/editer-stagiaire.component';
 import { PassageConcoursComponent } from './passage-concours/passage-concours.component';
+import { LibelleConcourPipe } from './libelle-concour.pipe';
 
 
 
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
     NavigationComponent,
     PageNonTrouveeComponent,
     EditerStagiaireComponent,
-    PassageConcoursComponent
+    PassageConcoursComponent,
+    LibelleConcourPipe
   ],
   imports: [
     BrowserModule,

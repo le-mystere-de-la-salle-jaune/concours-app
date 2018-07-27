@@ -1,6 +1,7 @@
 <app-navigation></app-navigation>
 <app-bandeau></app-bandeau>
 <h2>Mes concours</h2>
+<input type="text" placeholder="Search.." class="form-control col-6" name="searchFilter" [(ngModel)]="searchFilter" >
 <table class="table table-striped">
   <thead>
     <tr>
@@ -9,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let c of concours">
+    <tr *ngFor="let c of concours|libelleConcour:searchFilter">
       <td>{{c.titre}} ({{c.nb_quizzes}} questionnaires)</td>
       <td>
         <a class="btn btn-primary" (click)="commencerConcours(c.id)" >Participer</a>
