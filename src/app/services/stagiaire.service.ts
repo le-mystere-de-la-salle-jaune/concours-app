@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Stagiaire} from '../domains'
 import {environment} from '../../environments/environment'
-import {HttpClient, HttpParams} from '@angular/common/http'
+import {HttpClient} from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,7 @@ export class StagiaireService {
           });
           return array
         },(error:any)=>{
+          console.log("Error : "+error)
           return null
         })
 
@@ -37,7 +38,8 @@ export class StagiaireService {
           });
           return stagiaire
         },(error:any)=>{
-          console.log("ERROR !!!");return null
+          console.log("Error : "+error)
+          return null
         })
   }
 
