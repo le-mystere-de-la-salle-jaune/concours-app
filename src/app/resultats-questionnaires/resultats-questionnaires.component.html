@@ -7,11 +7,18 @@
   <h2>{{concours[idConcours-1].titre}} ({{concours[idConcours-1].nb_quizzes}} questionnaires)</h2>
   <ul class="list-group">
     <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let s of stagiaires">
-      <span class="badge badge-primary badge-pill">{{s.rang}}</span>
-      <!-- Il faudra faire attention à l'ordre des participants -->
-      <img class="img-responsive" src={{s.photo_url}}>
-      <!-- À voir pour la taille -->
-      <p>{{s.prenom}} {{s.nom}}</p>
+      <span class="badge badge-primary badge-pill">
+        <!-- Rang à attraper -->
+      </span>
+      <div class="container">
+          <div class="row">
+            <!-- Il faudra faire attention à l'ordre des participants -->
+            <div class="col align-middle"><img src={{s.photo_url}} class="rounded-circle" width="200" ></div>
+            <!-- À voir pour la taille -->
+            <div class="col align-middle mx-auto"><h2>{{s.prenom}} {{s.nom}}</h2></div>
+
+          </div>
+      </div>
     </li>
   </ul>
   <a href="{{id}}/resultats">Retour à mes résultats</a>
