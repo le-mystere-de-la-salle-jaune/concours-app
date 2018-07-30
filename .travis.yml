@@ -3,7 +3,9 @@ node_js:
   - "9"
 before_script:
   - npm install
-script: npm run build
+script:
+  - npm run build
+  - cp ./dist/examen-app/index.html ./dist/examen-app/404.html
 deploy:
   local-dir: dist/concours-app # A COMPLETER
   provider: pages
