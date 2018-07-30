@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams, HttpHeaders} from '@angular/common/http'
 import {environment} from '../../environments/environment'
 import { Concours } from '../domains';
+import { Observable , Subject } from 'rxjs';
+import { map } from 'rxjs/operators'
 
 
 
@@ -22,7 +24,7 @@ export class ConcoursService {
   
 
   constructor(private _http:HttpClient) { }
-
+/*
   listerConcours(id:string):Promise<Concours[]>{
 
     const options = {params : new HttpParams().set('idStagiaire',id)}
@@ -39,6 +41,16 @@ export class ConcoursService {
           console.log(error)
           return null
         })
+  }
+  */
+
+  listerConcours(id:string):Observable<Concours[]>{
+    const options = {params : new HttpParams().set('idStagiaire',id)}
+    const concours$ = this._http.get(environment.concoursApiUrl,options)
+      .pipe(
+        map((postsExterne: any[]) => postsExterne.map(pE => new Concours(pE.id,pE.titre,pE.nb_participants,pE.nb_quizzes)))
+      )
+      return concours$
   }
 
   getConcoursById(id:number):Promise<Concours>{

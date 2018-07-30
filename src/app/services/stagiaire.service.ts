@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {Stagiaire} from '../domains'
 import {environment} from '../../environments/environment'
 import {HttpClient} from '@angular/common/http'
+import { Observable , Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,8 @@ export class StagiaireService {
 
   constructor(private _http:HttpClient) { }
 
+  /*
   listerStagiaires():Promise<Stagiaire[]>{
-
     return this._http.get(environment.stagiaireApiUrl)
         .toPromise()
         .then((body:any)=>{
@@ -24,8 +26,18 @@ export class StagiaireService {
           console.log("Error : "+error)
           return null
         })
-
   }
+  */
+ listerStagiaires():Observable<Stagiaire[]> {
+
+  const stagiaires$ = this._http.get(environment.stagiaireApiUrl)
+    .pipe(
+      map((postsExterne: any[]) => postsExterne.map(pE => new Stagiaire(pE.id,pE.prenom,pE.nom,pE.email,pE.photo_url)) )
+    )
+    return stagiaires$;
+
+ }
+
 
   getStagiaireById(id:number):Promise<Stagiaire>{
 
