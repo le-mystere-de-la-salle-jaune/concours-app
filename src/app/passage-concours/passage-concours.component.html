@@ -2,19 +2,17 @@
 
 <form class="form-check" (ngSubmit)="submit(monForm)" #monForm="ngForm">
     
-    <h2 *ngIf="questions!=null">{{question.titre}}</h2>
+    <h2>{{question.titre}}</h2>
 
-    <div *ngFor="let opt of question.options" class="container">
-        <div class="row">
-            <div class="col">
-                <label>{{opt.libelle}}</label>
+    <div class="input-group" *ngFor="let opt of question.options">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input type="radio" name="option" value="{{opt.id}}" id="{{opt.id}}" [(ngModel)]="idReponse" required>
+              </div>
             </div>
-            <div class="col">
-                <input class="form-check-input" type="radio" name="option" value="opt.id" required>
-            </div>
-        </div>
-    </div>
+            <input type="label" class="form-control" value="{{opt.libelle}}">
+          </div>
 
 
-    <button type="submit" class="btn btn-primary">Valider</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!idReponse">Valider</button>
 </form>
