@@ -18,7 +18,12 @@ export class ConcoursStagiaireComponent implements OnInit {
   constructor(private route: ActivatedRoute, private concoursService:ConcoursService, private router:Router) { 
     this.id = this.route.snapshot.paramMap.get("id")
     this.idConcours = route.snapshot.paramMap.get("idConcours")
-    this.concoursService.listerConcours(this.id).then((liste:Concours[])=> { this.concours = liste }).catch((error:any)=> console.log(error) )
+    //this.concoursService.listerConcours(this.id).then((liste:Concours[])=> { this.concours = liste }).catch((error:any)=> console.log(error) )
+    this.concoursService.listerConcours(route.snapshot.paramMap.get("id")).subscribe(
+      value => this.concours = value,
+      error => console.log("Error : ", error),
+      () => console.log("La récupératon de données s'est bien passé")
+    )
     this.searchFilter =""
   }
 

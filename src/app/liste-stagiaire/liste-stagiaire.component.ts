@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Stagiaire} from '../domains'
+import { Stagiaire } from '../domains'
 import { StagiaireService } from '../services/stagiaire.service';
 
 
@@ -10,11 +10,16 @@ import { StagiaireService } from '../services/stagiaire.service';
 })
 export class ListeStagiaireComponent implements OnInit {
 
-  stagiaires:Stagiaire[]
+  stagiaires: Stagiaire[]
 
-  constructor(private stagiaireService:StagiaireService) {
-    this.stagiaireService.listerStagiaires().then((liste:Stagiaire[])=> { this.stagiaires = liste })
-   }
+  constructor(private stagiaireService: StagiaireService) {
+    //this.stagiaireService.listerStagiaires().then((liste:Stagiaire[])=> { this.stagiaires = liste })
+    this.stagiaireService.listerStagiaires().subscribe(
+      value => this.stagiaires = value,
+      error => console.log("Error : ", error),
+      () => console.log("La récupératon de données s'est bien passé")
+    )
+  }
 
   ngOnInit() {
   }
